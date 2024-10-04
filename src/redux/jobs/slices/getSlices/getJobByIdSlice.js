@@ -6,7 +6,7 @@ export const GET_JOB_BY_ID = {
       state.get.message = '';
     },
     fulfilled: (state, action) => {
-      state.get.holidayById = action?.payload?.data?.data;
+      state.get.jobById = action?.payload?.data;
       state.get.isLoading = false;
       state.get.isSuccess = true;
       state.get.isError = false;

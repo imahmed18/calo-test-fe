@@ -22,6 +22,9 @@ export const jobPropTypes = {
   ]),
 };
 
+export const jobDetailsPropTypes = PropTypes.shape({
+  job: jobPropTypes.isRequired,
+});
 export const jobListPropTypes = PropTypes.arrayOf(
   PropTypes.shape(jobPropTypes)
 );
