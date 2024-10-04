@@ -1,5 +1,7 @@
 export const endpoints = {
-  auth: {
-    login: 'auth/login',
+  job: {
+    get: 'jobs',
+    getByID: 'jobs',
+    post: 'jobs',
   },
 };

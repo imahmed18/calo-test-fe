@@ -1,9 +1,11 @@
 import { useRoutes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import CreateJob from '../pages/CreateJob';
+import JobDetails from '../pages/JobDetails';
 
 const Layout = lazy(() => import('../layouts/Layout'));
-const Dashboard = lazy(() => import('../pages/Dashboard'));
+const JobListing = lazy(() => import('../pages/JobListing'));
 const Page404 = lazy(() => import('../pages/Page404'));
 const Loader = lazy(() => import('../components/lazy/Loader'));
 
@@ -18,7 +20,11 @@ export default function Router() {
           </Suspense>
         </Layout>
       ),
-      children: [{ element: <Dashboard />, index: true }],
+      children: [
+        { element: <JobListing />, index: true },
+        { path: 'create', element: <CreateJob /> },
+        { path: 'details/:id', element: <JobDetails /> },
+      ],
     },
     { path: '*', element: <Page404 /> },
   ]);
