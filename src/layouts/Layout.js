@@ -1,15 +1,14 @@
 import React from 'react';
+import { NavbarComponent } from '../components/Navbar/Navbar';
+import { SidebarComponent } from '../components/Sidebar/Sidebar';
 
 const Layout = ({ children }) => {
   return (
     <>
-      <header>
-        <h2>Header</h2>
-      </header>
-      {children}
-      <footer>
-        <h2>Footer</h2>
-      </footer>
+      <NavbarComponent />
+      <SidebarComponent>
+        {children}
+      </SidebarComponent>
     </>
   );
 };
