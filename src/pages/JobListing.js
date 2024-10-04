@@ -9,10 +9,22 @@ const JobListing = () => {
   const jobList = useSelector((state) => state.job.get.list) || [];
 
   useEffect(() => {
-    dispatch(getJob());
+    const fetchJobs = () => {
+      dispatch(getJob());
+    };
 
+    // Initial fetch
+    fetchJobs();
+
+    // Set up polling with a 5 second interval
+    const intervalId = setInterval(fetchJobs, 5000);
+
+    // Cleanup the interval when component unmounts
+    return () => {
+      clearInterval(intervalId);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className='container mx-auto p-4'>

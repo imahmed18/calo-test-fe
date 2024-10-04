@@ -17,8 +17,9 @@ function App() {
 
 export default App;
 
-export const toastNotify = (type, message) =>
+export const toastNotify = (type, message, toastId) =>
   toast(`${message}`, {
+    toastId,
     position: 'top-right',
     autoClose: 4000,
     hideProgressBar: false,
