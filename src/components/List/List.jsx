@@ -1,12 +1,16 @@
 import { List, Avatar } from 'flowbite-react';
 import { jobListPropTypes } from '../../propTypes/job';
+import { Link } from 'react-router-dom';
 
 export function ListComponent({ jobs }) {
   return (
     <List unstyled className="divide-y divide-gray-200 dark:divide-gray-700">
       {jobs.map((job) => (
-        <List.Item key={job.id} className="pb-3 sm:pb-4">
-          <div className="flex items-center space-x-4 rtl:space-x-reverse">
+        <List.Item key={job.id} className="py-3 sm:py-4">
+          <Link
+            to={`/jobs/details/${job.id}`}
+            className="flex items-center space-x-4 rtl:space-x-reverse p-2 rounded hover:bg-cyan-700 transition-colors duration-200"
+          >
             <Avatar
               img={job.data ? job.data.urls.small : '/images/no-image.jpg'}
               alt="Unsplash image"
@@ -25,7 +29,7 @@ export function ListComponent({ jobs }) {
               <span>Status:&nbsp;</span>
               {job.status}
             </div>
-          </div>
+          </Link>
         </List.Item>
       ))}
     </List>

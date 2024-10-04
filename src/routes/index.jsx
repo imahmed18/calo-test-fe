@@ -23,7 +23,7 @@ export default function Router() {
       children: [
         { element: <JobListing />, index: true },
         { path: 'create', element: <CreateJob /> },
-        { path: 'details/:id', element: <JobDetails /> },
+        { path: '/jobs/details/:id', element: <JobDetails /> },
       ],
     },
     { path: '*', element: <Page404 /> },

@@ -1,7 +1,15 @@
 import { Sidebar } from 'flowbite-react';
-import { HiShoppingBag } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
+import { usePathname } from '../../routes/hook/usePathname';
 
 export function SidebarComponent({ children }) {
+  const currentPath = usePathname();
+
+  // Helper function to determine class names
+  const getItemClassName = (path) => {
+    return currentPath === path ? 'bg-cyan-700 hover:bg-cyan-700' : 'hover:bg-cyan-700';
+  };
+
   return (
     <div className="w-screen h-[calc(100vh-56px)] flex flex-row">
       <Sidebar
@@ -10,10 +18,12 @@ export function SidebarComponent({ children }) {
       >
         <Sidebar.Items>
           <Sidebar.ItemGroup>
-            <Sidebar.Collapse icon={HiShoppingBag} label="Jobs">
-              <Sidebar.Item href="#"> All Jobs</Sidebar.Item>
-              <Sidebar.Item href="#">Create Job</Sidebar.Item>
-            </Sidebar.Collapse>
+            <Sidebar.Item as={Link} to="/" className={getItemClassName('/')}>
+              All Jobs
+            </Sidebar.Item>
+            <Sidebar.Item as={Link} to="/create" className={getItemClassName('/create')}>
+              Create Job
+            </Sidebar.Item>
           </Sidebar.ItemGroup>
         </Sidebar.Items>
       </Sidebar>
