@@ -20,7 +20,7 @@ This frontend application was built to complement the Calo Jobs backend microser
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/imahmed18/calo-frontend.git
+    git clone https://github.com/imahmed18/calo-test-fe.git
     cd <repository-directory>
     ```
 
