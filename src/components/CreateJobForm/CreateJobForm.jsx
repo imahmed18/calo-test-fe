@@ -3,17 +3,25 @@ import { useForm } from 'react-hook-form';
 import { Button, Label, TextInput } from 'flowbite-react';
 import { useDispatch } from 'react-redux';
 import { postJob } from '../../redux/jobs/thunk/post/postJob.thunk';
+import { useNavigate } from 'react-router-dom';
+import { paths } from '../../routes/paths';
 
 export function CreateJobForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    dispatch(postJob(data));
+  const onSubmit = async (data) => {
+    try {
+      await dispatch(postJob(data)).unwrap();
+      navigate(paths.PATH_JOB.root);
+    } catch (error) {
+      console.error('Failed to post job:', error);
+    }
   };
 
   return (

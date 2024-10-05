@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import jobService from '../../services/jobService';
+import { toastNotify } from '../../../../App';
 
 // Function to send offline jobs when online
 const sendOfflineJobs = async () => {
@@ -33,6 +34,7 @@ export const postJob = createAsyncThunk('post-job', async (payload, thunkAPI) =>
     try {
         if (navigator.onLine) {
             const response = await jobService.post(payload);
+            toastNotify('info', 'Job posted successfully');
             return response;
         } else {
             const offlineJobs = JSON.parse(localStorage.getItem('offlineJobs')) || [];

@@ -4,7 +4,7 @@ import { paths } from '../paths';
 export function useActiveLink(path, deep = true) {
   const { pathname } = useLocation();
 
-  const basePath = paths.PATH_DASHBOARD.root;
+  const basePath = paths.PATH_JOB.root;
 
   const checkPath = doesPathNameIncludePath(basePath, pathname, path);
 
