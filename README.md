@@ -7,7 +7,7 @@ This frontend application was built to complement the Calo Jobs backend microser
 
 - [Quick Start](#quick-start)
 - [Project Overview](#project-overview)
-- [Design Considerations for Resilience](#design-consideration-for-resilience)
+- [Design Considerations for Resilience](#design-considerations-for-resilience)
 
 ## Quick Start
 
