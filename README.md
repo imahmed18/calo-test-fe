@@ -1,4 +1,6 @@
 
+
+  
 # Calo Jobs Frontend Application
 
 This frontend application was built to complement the Calo Jobs backend microservices. It provides a user-friendly interface to create jobs and view their statuses or results. The frontend was implemented using **React.js**, with API requests handled through the backend API Gateway. The jobs simulate fetching random images from Unsplash's food category, and the frontend displays the status or results of each job.
@@ -8,15 +10,10 @@ This frontend application was built to complement the Calo Jobs backend microser
 - [Quick Start](#quick-start)
 - [Project Overview](#project-overview)
 - [Design Considerations for Resilience](#design-considerations-for-resilience)
+- [Future Improvements](#future-improvements)
+- [Challenges and Time Taken](#challenges-and-time-taken)
 
 ## Quick Start
-
-### Prerequisites
-
-- Ensure **Node.js** and **npm** (or **yarn**) are installed on your machine.
-
-### Installation
-
 1. Clone the repository:
 
     ```bash
@@ -24,7 +21,39 @@ This frontend application was built to complement the Calo Jobs backend microser
     cd <repository-directory>
     ```
 
-2. Install dependencies:
+
+### Docker Installation
+### Prerequisites
+
+- Ensure **Docker** and **Docker Compose** are installed on your machine.
+### Steps to Start with Docker
+1. Build the docker image:
+
+    ```bash
+    docker build -t calo-fe-image .
+    ```
+ 2. Run the docker container:
+
+    ```bash
+    docker run -p 3000:3000 calo-fe-image
+    ```
+    This will start the application in a Docker container and expose it on port `3000` of your localhost.
+  2. Access the application:
+  Open your browser and navigate to:
+
+	    ```bash
+	    http://localhost:3000
+	    ``` 
+   
+
+    
+### Manual Installation
+### Prerequisites
+
+- Ensure **Node.js** and **npm** (or **yarn**) are installed on your machine.
+
+
+1. Install dependencies:
 
     ```bash
     npm install
@@ -36,7 +65,7 @@ This frontend application was built to complement the Calo Jobs backend microser
     yarn install
     ```
 
-3. Start the development server:
+2. Start the development server:
 
     ```bash
     npm start
@@ -48,7 +77,7 @@ This frontend application was built to complement the Calo Jobs backend microser
     yarn start
     ```
 
-4. The application will start running at:
+3. The application will start running at:
 
     ```
     http://localhost:3000
@@ -195,3 +224,13 @@ This approach ensures that the application remains responsive and can display jo
 -   The interval is cleared when the component unmounts to avoid memory leaks or redundant requests.
 
 These two design considerations—offline job handling and job status polling—make the frontend resilient and capable of handling real-world issues like network instability and unpredictable job execution times.
+
+---
+
+## Future Improvements
+- **Implementation of Server-Sent Events (SSE)**: Instead of using a polling mechanism to check job statuses, implementing Server-Sent Events (SSE) would create a more efficient one-way communication channel from the server to the client for receiving job updates. SSE allows the server to push updates to the client in real time, eliminating the need for repeated requests. This approach reduces latency, lowers server load, and conserves bandwidth by maintaining a single persistent connection. Clients can automatically receive updates as soon as they occur, improving responsiveness and user experience. Additionally, SSE includes built-in reconnection capabilities, ensuring that clients stay updated even in the event of network interruptions.
+---
+## Challenges and Time Taken
+During the development of the frontend application, no significant challenges were faced. The setup and integration processes proceeded smoothly, allowing for an efficient workflow.
+
+In terms of time investment, it took approximately **5 hours** to set up the project and establish end-to-end API integration. Additionally, **1 hour** was spent documenting the code flow and approach in the README file to ensure clarity and ease of understanding for technical review of code.
