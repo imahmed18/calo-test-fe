@@ -87,7 +87,7 @@ This frontend application was built to complement the Calo Jobs backend microser
 
 This project is a **React-based** frontend application designed to offer a highly interactive and dynamic user experience. The application is structured around modern web development best practices, leveraging the power of **React** for building UI components, **Redux Toolkit** for efficient and simplified state management, and **Thunk** middleware for handling asynchronous actions such as API requests.
 
-The application serves as the frontend of a larger system, interacting with backend APIs to perform operations like data fetching, job management, and user authentication. It is designed to be highly modular, making it easy to scale and maintain as the codebase grows. Here's an overview of the key technologies and features:
+The application serves as the frontend of a larger system, interacting with backend APIs to perform operations like data fetching, and job management. It is designed to be highly modular, making it easy to scale and maintain as the codebase grows. Here's an overview of the key technologies and features:
 
 ## Key Features
 
