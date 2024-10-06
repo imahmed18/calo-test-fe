@@ -8,6 +8,7 @@ const JobDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const jobDetails = useSelector((state) => state.job.get.jobById) || null;
+  const isLoading = useSelector((state) => state.job.get.isLoading);
 
   useEffect(() => {
     dispatch(getJobById(id));
@@ -18,7 +19,7 @@ const JobDetails = () => {
   return (
     <div className='container mx-auto p-4'>
       <h4 className='text-3xl font-semibold mb-8'>Job Details</h4>
-      <JobDetailCard jobDetails={jobDetails} />
+      {isLoading ? (<p>Loading...</p>) : (<JobDetailCard jobDetails={jobDetails} />)}
     </div>
   );
 };
