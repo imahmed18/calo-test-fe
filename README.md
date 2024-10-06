@@ -1,4 +1,5 @@
 
+
   
 # Calo Jobs Frontend Application
 
@@ -13,13 +14,6 @@ This frontend application was built to complement the Calo Jobs backend microser
 - [Challenges and Time Taken](#challenges-and-time-taken)
 
 ## Quick Start
-
-### Prerequisites
-
-- Ensure **Node.js** and **npm** (or **yarn**) are installed on your machine.
-
-### Installation
-
 1. Clone the repository:
 
     ```bash
@@ -27,7 +21,39 @@ This frontend application was built to complement the Calo Jobs backend microser
     cd <repository-directory>
     ```
 
-2. Install dependencies:
+
+### Docker Installation
+### Prerequisites
+
+- Ensure **Docker** and **Docker Compose** are installed on your machine.
+### Steps to Start with Docker
+1. Build the docker image:
+
+    ```bash
+    docker build -t calo-fe-image .
+    ```
+ 2. Run the docker container:
+
+    ```bash
+    docker run -p 3000:3000 calo-fe-image
+    ```
+    This will start the application in a Docker container and expose it on port `3000` of your localhost.
+  2. Access the application:
+  Open your browser and navigate to:
+
+	    ```bash
+	    http://localhost:3000
+	    ``` 
+   
+
+    
+### Manual Installation
+### Prerequisites
+
+- Ensure **Node.js** and **npm** (or **yarn**) are installed on your machine.
+
+
+1. Install dependencies:
 
     ```bash
     npm install
@@ -39,7 +65,7 @@ This frontend application was built to complement the Calo Jobs backend microser
     yarn install
     ```
 
-3. Start the development server:
+2. Start the development server:
 
     ```bash
     npm start
@@ -51,7 +77,7 @@ This frontend application was built to complement the Calo Jobs backend microser
     yarn start
     ```
 
-4. The application will start running at:
+3. The application will start running at:
 
     ```
     http://localhost:3000
